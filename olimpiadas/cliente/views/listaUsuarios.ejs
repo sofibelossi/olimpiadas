@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="col-3">
+        <a class="btn btn-outline-secondary btn-lg" href="/altaUsuario" role="button">Agregar Usuario</a>
+    </div>
+<div class="container mt-4">
+    <h2 class="mb-4">Administradores</h2>
+    <div class="row">
+        <% admins.forEach(admin => { %>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= admin.nombre %> <%= admin.apellido %></h5>
+                        <p class="card-text">Email: <%= admin.email %></p>
+                        <p class="card-text">Teléfono: <%= admin.telefono %></p>
+                        <a href="/editarUsuario/<%= admin.id %>" class="btn btn-warning">Editar</a>
+                        <a href="/eliminarUsuario/<%= admin.id %>" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <hr>
+
+    <h2 class="mb-4">Clientes</h2>
+    <div class="row">
+        <% clientes.forEach(cliente => { %>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= cliente.nombre %> <%= cliente.apellido %></h5>
+                        <p class="card-text">Email: <%= cliente.email %></p>
+                        <p class="card-text">Teléfono: <%= cliente.telefono %></p>
+                        <a href="/update/<%= cliente.id %>" class="btn btn-warning">Editar</a>
+                        <a href="/delete/<%= cliente.id %>" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

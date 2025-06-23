@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+
+<body>
+  <h2>Tu carrito</h2>
+
+  <form action="/confirmarCompra" method="post">
+    <input type="date" placeholder="fecha de inicio" name="fecha_inicio" required>
+
+    <div class="row">
+      <% results.forEach((item)=> { %>
+        <div class="col-4">
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <!--<img src="..." class="img-fluid rounded-start" alt="imagen">-->
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <input type="checkbox" name="paquetes" value="<%= item.id_paquete%>">
+                  <h5 class="card-title">
+                    <%= item.nombre %>
+                  </h5>
+                  <p class="card-text">
+                    <%= item.descripcion %>
+                  </p>
+                  <p class="card-text">$<%= item.precio_base %>
+                  </p>
+                  <p>Cantidad: <%= item.cantidad %>
+                  </p>
+                  <p>Días: <%= item.cantidad_dias %>
+                  </p>
+                  <p>Subtotal: $<%= item.precio_unitario %>
+                  </p>
+                  <input type="hidden" name="id_carrito_detalle" value="<%=item.id_carrito_detalle%>">
+                  <!-- Botón Personalizar podría ir afuera si hace otra acción -->
+                  <% if (item.auto_marca) { %>
+                    <p><strong>Auto:</strong>
+                      <%= item.auto_marca %>
+                        <%= item.auto_modelo %>
+                    </p>
+                    <% } %>
+
+                      <% if (item.excursion_nombre) { %>
+                        <p><strong>Excursión:</strong>
+                          <%= item.excursion_nombre %> ($<%= item.excursion_precio %>)
+                        </p>
+                        <% } %>
+                          <% const total=item.precio_unitario + (item.precio_auto || 0) + (item.precio_excursion || 0);
+                            %>
+                            <p class="fw-bold">Total con extras: $<%= total %>
+                            </p>
+                            <a href="/personalizarPaquete/<%=item.id_carrito_detalle%>">Personalizar paquete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+
+    <input type="submit" value="Confirmar compra">
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
