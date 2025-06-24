@@ -41,7 +41,7 @@
 
 <body>
     <div>
-        <a href="/altaPaquete">Agregar</a>
+        <a href="/altaPaquete" role="button" class="btn btn-outline-secondary">Agregar</a>
         <table class="table table-success table-striped">
             <thead>
                 <tr>
@@ -68,8 +68,8 @@
                             <%=paquete.precio_base%>
                         </td>
                         <td>
-                            <a href="/editarPaquete/<%=paquete.id%>">Editar</a>
-                            <a href="/eliminarPaquete/<%=paquete.id%>">Eliminar</a>
+                            <a href="/editarPaquete/<%=paquete.id%>" role="button" class="btn btn-outline-secondary">Editar</a>
+                            <a href="/eliminarPaquete/<%=paquete.id%>" role="button" class="btn btn-outline-secondary">Eliminar</a>
                         </td>
                     </tr>
                     <%})%>

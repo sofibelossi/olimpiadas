@@ -40,7 +40,7 @@
 
 <body>
     <div>
-        <a href="/altaHotel">Agregar</a>
+        <a href="/altaHotel" role="button" class="btn btn-outline-secondary">Agregar</a>
         <table class="table table-success table-striped">
             <thead>
                 <tr>
@@ -67,8 +67,8 @@
                             <%=hotel.tipo_habitacion%>
                         </td>
                         <td>
-                            <a href="/editarHotel/<%=hotel.id%>">Editar</a>
-                            <a href="/eliminarHotel/<%=hotel.id%>">Eliminar</a>
+                            <a href="/editarHotel/<%=hotel.id%>" role="button" class="btn btn-outline-secondary">Editar</a>
+                            <a href="/eliminarHotel/<%=hotel.id%>" role="button" class="btn btn-outline-secondary">Eliminar</a>
                         </td>
                     </tr>
                     <%})%>

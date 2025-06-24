@@ -27,7 +27,6 @@
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <!-- Botón para iniciar sesión -->
-        <button class="btn me-md-2" style="background-color: #EFA937;" type="button"></button>
     </div>
 </header>
 <nav class="nav">
@@ -75,7 +74,7 @@
                             <%=reserva.estado%>
                         </td><!--el unico modificable-->
                         <td>
-                            <a href="/editarReserva/<%=reserva.id%>">editar</a>
+                            <a href="/editarReserva/<%=reserva.id%>" role="button" class="btn btn-outline-secondary">editar</a>
                         </td>
                     </tr>
                     <%})%>

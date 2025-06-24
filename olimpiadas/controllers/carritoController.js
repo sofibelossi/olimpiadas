@@ -133,8 +133,8 @@ exports.confirmarCompra = ((req, res) => {
                     const idDetalle = item.id_carrito_detalle;
 
                     // Eliminar extras primero
-                    con.query("DELETE FROM carrito_detalle_auto WHERE id_carrito_detalle = ?", [idDetalle]);
-                    con.query("DELETE FROM carrito_detalle_excursion WHERE id_carrito_detalle = ?", [idDetalle]);
+                    con.query("DELETE FROM carrito_auto WHERE id_detalle = ?", [idDetalle]);
+                    con.query("DELETE FROM carrito_excursion WHERE id_detalle = ?", [idDetalle]);
 
                     // Luego eliminar el detalle del carrito
                     con.query("DELETE FROM carrito_detalle WHERE id = ?", [idDetalle], (err2) => {
