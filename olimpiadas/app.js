@@ -6,6 +6,7 @@ const app=express();
 const con = require('./servidor/database/db');//trae la variable con del archivo db
 app.use(express.json());
 app.use(body_parser.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'cliente/views'));
 app.set('view engine', 'ejs');
 
